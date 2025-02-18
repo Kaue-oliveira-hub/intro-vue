@@ -1,6 +1,6 @@
-const {createApp, ref} = Vue;
+const {createApp, ref, computed } = Vue;
  
-const sententiae = [
+const primumSententiae = [
     { sententia: 'The night is darkest just before the dawn. And I promise you, the dawn is coming.', auctor: 'Harvey Dent, The Dark Knight' },
     { sententia: 'I believe what doesn’t kill you simply makes you, stranger.', auctor: 'The Joker, The Dark Knight' },
     { sententia: 'Your anger gives you great power. But if you let it, it will destroy you… As it almost did me', auctor: 'Henri Ducard, Batman Begins' },
@@ -8,22 +8,47 @@ const sententiae = [
     { sententia: 'If you’re good at something, never do it for free.', auctor: 'The Joker, The Dark Knight' },
     { sententia: 'Yes, father. I shall become a bat.', auctor: 'Bruce Wayne/Batman, Batman: Year One' },
 ]
- // crear variable reactiva.. se llega con .value que es eso??
+//variable y propiedad comutada. hay que poner computed ...que depende otras funciones
+ // crear variable reactiva.. se llega con .value  hayq que poner ref.
 const app = createApp({
     setup(){
  const revelareAuctor = ref(true);
+ const sententiae = ref(primumSententiae);
+
+ const nuntiusNovus = ref('');
+
+
+
+const summaSententias = computed(() => {
+
+    return sententiae.value.length;
+});
+
 
         const vectisAuctor = () => {
             revelareAuctor.value = !revelareAuctor.value;
         }
 
+        const addereSententia = () =>{
+            sententiae.value.unshift({sententia:nuntiusNovus.value, auctor: 'Fernando Cordon'})
+            nuntiusNovus.value = '';
+        }
         return{
+            //variables reactivas
             sententiae,
             revelareAuctor,
+            nuntiusNovus,
+            //estas son otras funciones del tipo compited
+            summaSententias,
+
+            // esa funcion es del tipo metodo
             vectisAuctor,
- 
+            addereSententia,
+           
+            
         }
     }
 });
+
  
 app.mount('#myApp');

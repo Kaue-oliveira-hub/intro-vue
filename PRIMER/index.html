@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <title>Intro Vue</title>
 </head>
+ 
 <body>
-<div id="myApp">
-<h3>{{ mensaje}}</h3>
-<blockquote>{{ mensaje}}</blockquote>
-<button v-on:click="changeMessage"> Cambiar Mensaje </button>
-      
-</div>
-
-
-
-
-
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="app.js"></script>
+    <div id="myApp">
+        <h3>{{nuntius}}</h3>
+        <blockquote>{{auctor}}</blockquote>
+        <button v-on:click="mutareSentencia">Cambiar mensaje</button>
+ 
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
+ 

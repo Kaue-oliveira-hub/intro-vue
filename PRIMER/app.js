@@ -1,39 +1,34 @@
-
-
-console.log(Vue);
-
-//vamos hacer una desestructuración de Vue
-
-const { createApp, ref } = Vue;
-
+const {createApp, ref} = Vue;
+ 
 const app = createApp({
- template: `
- <h1>{{ mensaje }}</h1>
- <h2>{{ auctor }}</h2>
- <p> Desde app.js</p>
- `,
-// QUE ES UNA UNA VARIABLE REACTIVA
- setup(){
- const mensaje =  ref("I'm Batman");
-const auctor = ref('Batman');
-
- //setTimeout(() => {
-  //  mensaje.value = 'Soy Goku';
- //   auctor.value = 'Goku';
- //   console.log(mensaje);
- //}, 1000);
-
-const changeMessage = () => {
-mensaje.value = 'Soy Otra mensaje de Goku';
-auctor.value = 'Goku';
-}
-
-    return {
-        mensaje,
-        auctor,
-        changeMessage,
-    }}
-
-});
-
-app.mount('#myApp');
+    
+    // template:`
+    // <h1>{{nuntius}}</h1>
+    // <p>{{auctor}}</p>
+    // `,
+ 
+    setup(){
+        
+        const nuntius = ref("I'am Batman");
+        const auctor = ref('Batman')
+ 
+        // setTimeout(()=>{
+        //     nuntius.value = 'Soy Goku';
+        //     auctor.value = 'Goku';
+        //     console.log(nuntius);
+        // },1000);
+        const mutareSentencia = () =>{
+            nuntius.value = 'Hola, soy Goku';
+            auctor.vlue = 'Goku';
+        }
+        return{
+            nuntius,
+            auctor,
+            mutareSentencia,
+        }
+ 
+    }
+ 
+})
+ 
+app.mount('#myApp')
