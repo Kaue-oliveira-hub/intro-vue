@@ -17,15 +17,21 @@ const app = createApp({
  const mensaje =  ref("I'm Batman");
 const auctor = ref('Batman');
 
- setTimeout(() => {
-    mensaje.value = 'Soy Goku';
-    auctor.value = 'Goku';
-    console.log(mensaje);
- }, 1000);
+ //setTimeout(() => {
+  //  mensaje.value = 'Soy Goku';
+ //   auctor.value = 'Goku';
+ //   console.log(mensaje);
+ //}, 1000);
+
+const changeMessage = () => {
+mensaje.value = 'Soy Otra mensaje de Goku';
+auctor.value = 'Goku';
+}
 
     return {
         mensaje,
         auctor,
+        changeMessage,
     }}
 
 });
